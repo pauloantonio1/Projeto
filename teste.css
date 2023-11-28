@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('decoracaodesalaodebelezaabre.jpeg'); /* Substitua pelo caminho para sua imagem */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.95); /* Cor de fundo da caixa */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    margin: auto; /* Centraliza horizontalmente */
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.horarios-list {
+    list-style: none;
+    padding: 0;
+}
+
+.horarios-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    flex: 1; /* Para ocupar o espaço restante */
+}
+
+.agendar-btn {
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.agendar-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Estilos responsivos para telas menores */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px; /* Reduz o padding */
+    }
+
+    input[type="text"] {
+        margin-bottom: 10px;
+    }
+}
+#rada {
+    bottom: auto;
+    background-color: rgba(95, 95, 76, 0);
+    text-align: center;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+
+
+    <div class="container">
+      <h1>Agendamento de Corte de Cabelo</h1>
+      
+      <div class="horarios">
+        <h2>Horários Disponíveis:</h2>
+        <ul class="horarios-list">
+          <!-- Horários de meia em meia hora, das 9h às 20h -->
+          <li>09:00 - <input type="text" placeholder="Seu nome"><button class="agendar-btn">Agendar</button></li>
+          <li>09:30 - <input type="text" placeholder="Seu nome"><button class="agendar-btn">Agendar</button></li>
+          <li>10:00 - <input type="text" placeholder="Seu nome"><button class="agendar-btn">Agendar</button></li>
+          <li>10:30 - <input type="text" placeholder="Seu nome"><button class="agendar-btn">Agendar</button></li>
+          <li>11:30 - <input type="text" placeholder="Seu nome"><button class="agendar-btn">Agendar</button></li>
+          <li>12:30 - <input type="text" placeholder="Seu nome"><button class="agendar-btn">Agendar</button></li>
+          <li>13:00 - <input type="text" placeholder="Seu nome"><button class="agendar-btn">Agendar</button></li>
+          <li>13:30 - <input type="text" placeholder="Seu nome"><button class="agendar-btn">Agendar</button></li>
+          <li>14:00 - <input type="text" placeholder="Seu nome"><button class="agendar-btn">Agendar</button></li>
+          <li>14:30 - <input type="text" placeholder="Seu nome"><button class="agendar-btn">Agendar</button></li>
+          <li>15:00 - <input type="text" placeholder="Seu nome"><button class="agendar-btn">Agendar</button></li>
+          <li>15:30 - <input type="text" placeholder="Seu nome"><button class="agendar-btn">Agendar</button></li>
+          <!-- Continue com os demais horários -->
+          <h2><P id="rada">Para escolher outro <a href="profissionais.html">profissional.</a></P></h2>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <script>
+    // Função para cancelar o agendamento
+    function cancelarAgendamento(button) {
+      button.textContent = 'Agendar';
+      button.style.backgroundColor = '#3498db';
+    }
+    
+    // Seleciona todos os botões de agendamento
+    const agendarButtons = document.querySelectorAll('.agendar-btn');
+    
+    // Adiciona um evento de clique para cada botão
+    agendarButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        if (this.textContent === 'Agendar') {
+          this.textContent = 'Cancelar';
+          this.style.backgroundColor = 'red'; // Mude a cor conforme necessário
+        } else {
+          cancelarAgendamento(this);
+        }
+      });
+    });
+    </script>
+    <div class="avaliacao">
+      <h2>Avalie nosso salão:</h2>
+      <div class="estrelas" id="estrelas">
+          <span class="estrela" data-valor="1">&#9733;</span>
+          <span class="estrela" data-valor="2">&#9733;</span>
+          <span class="estrela" data-valor="3">&#9733;</span>
+          <span class="estrela" data-valor="4">&#9733;</span>
+          <span class="estrela" data-valor="5">&#9733;</span>
+      </div>
+      <button onclick="enviarAvaliacao()">Enviar Avaliação</button>
+  </div>
+
+  
+
+  <script>
+      const estrelas = document.querySelectorAll('.estrela');
+
+      function marcarEstrelas(valor) {
+          estrelas.forEach((estrela, index) => {
+              if (index < valor) {
+                  estrela.classList.add('selecionada');
+              } else {
+                  estrela.classList.remove('selecionada');
+              }
+          });
+      }
+
+      estrelas.forEach(estrela => {
+          estrela.addEventListener('mouseover', function() {
+              const valor = this.getAttribute('data-valor');
+              marcarEstrelas(valor);
+          });
+
+          estrela.addEventListener('mouseout', function() {
+              marcarEstrelas(0);
+          });
+
+          estrela.addEventListener('click', function() {
+              const valor = this.getAttribute('data-valor');
+              // Aqui você pode enviar a avaliação para o servidor, por exemplo
+              alert(`Você avaliou com ${valor} estrela(s)!`);
+          });
+      });
+
+      function enviarAvaliacao() {
+          const estrelasSelecionadas = document.querySelectorAll('.estrela.selecionada').length;
+          if (estrelasSelecionadas === 0) {
+              alert('Por favor, selecione uma avaliação!');
+          } else {
+              alert(`Você enviou sua avaliação com ${estrelasSelecionadas} estrela(s)!`);
+              // Aqui você pode enviar a avaliação para o servidor, por exemplo
+          }
+      }
+  </script>
+    </body>
+    </html>
